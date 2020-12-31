@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 const materialModules = [
@@ -8,6 +7,6 @@ const materialModules = [
 @NgModule({
   declarations: [],
   imports: [...materialModules],
-  exports:[...materialModules]
+  exports: [...materialModules]
 })
 export class MaterialModule { }
