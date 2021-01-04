@@ -1,0 +1,7 @@
+.like-card{
+  padding: 5px;
+  border: 1px solid black;
+  width: 48%;
+  overflow-y: scroll;
+  height: 400px;
+}

@@ -1,0 +1,9 @@
+.dislike-card{
+  margin-top: 5%;
+  padding: 5px;
+  border: 1px solid black;
+  width: 48%;
+  height: 400px;
+  overflow-y: scroll;
+
+}

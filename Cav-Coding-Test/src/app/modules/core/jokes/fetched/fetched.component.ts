@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, interval, timer } from 'rxjs';
+import { map, timeout } from 'rxjs/internal/operators';
 
 import { IJokes } from './../../../../shared/models/interface/jokes';
 import { JokesService } from './../../../shared/services/jokes/jokes.service';
-import { map } from 'rxjs/internal/operators';
 
 @Component({
   selector: 'app-fetched',
@@ -23,7 +23,7 @@ export class FetchedComponent implements OnInit {
 
 
 
-  private getJokes() {
+  getJokes() {
     this.jokesService.getJokes().pipe(
       map((data: any) => {
         const item = {
@@ -33,4 +33,7 @@ export class FetchedComponent implements OnInit {
       }
       )).subscribe();
   }
+
+
+
 }
