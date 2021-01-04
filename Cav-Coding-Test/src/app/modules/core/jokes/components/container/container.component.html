@@ -6,12 +6,12 @@
 </div>
 
 <div class="liked-app">
-  <app-like [likes]="likes"></app-like>
+  <app-like [likes]="likes" (dislike)="onDisliked($event)"></app-like>
 </div>
 
 <div class="archived-app">
   <app-archived></app-archived>
 </div>
 <div class="disliked-app">
-  <app-dislike [dislikes]="dislikes"></app-dislike>
+  <app-dislike [dislikes]="dislikes" (like)="onLiked($event)"></app-dislike>
 </div>

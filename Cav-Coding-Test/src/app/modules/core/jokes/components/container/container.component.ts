@@ -34,4 +34,22 @@ export class ContainerComponent implements OnInit {
     }
   }
 
+  onDisliked(ev) {
+    if (ev) {
+      let ids = this.likes.map(item => item.id);
+      let idLike = ids.indexOf(ev.id);
+      this.likes.splice(idLike, 1);
+      this.dislikes.push(ev);
+    }
+  }
+
+  onLiked(ev){
+    if (ev) {
+      let ids = this.dislikes.map(item => item.id);
+      let idDisliked = ids.indexOf(ev.id);
+      this.dislikes.splice(idDisliked, 1);
+      this.likes.push(ev);
+    }
+  }
+
 }

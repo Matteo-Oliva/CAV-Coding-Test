@@ -15,9 +15,7 @@ export class LikeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
-
   disliked(joke) {
-    this.dislike.emit(joke)
+    this.dislike.emit(joke);
   }
 }

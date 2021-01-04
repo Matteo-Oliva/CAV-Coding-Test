@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { IJokes } from './../../../../shared/models/interface/jokes';
 
@@ -9,9 +9,15 @@ import { IJokes } from './../../../../shared/models/interface/jokes';
 })
 export class DislikeComponent implements OnInit {
   @Input() dislikes: IJokes[];
+  @Output() like = new EventEmitter()
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onLike(joke){
+    this.like.emit(joke)
   }
 
 }

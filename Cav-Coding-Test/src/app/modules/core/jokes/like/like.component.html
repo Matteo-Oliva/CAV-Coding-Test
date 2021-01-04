@@ -5,10 +5,11 @@
       <mat-card-title><h1>Liked Jokes</h1></mat-card-title>
     </mat-card-header>
     <mat-card-content *ngFor="let item of likes">
-
-      <p>{{item.joke}}</p>
+      <p>{{ item.joke }}</p>
       <mat-card-actions>
-        <button mat-raised-button color="primary" (click)="disliked(item)">Dislike</button>
+        <button mat-raised-button color="primary" (click)="disliked(item)">
+          Dislike
+        </button>
         <button mat-raised-button color="accent">Archive</button>
         <button mat-raised-button color="warn">Delete</button>
       </mat-card-actions>
