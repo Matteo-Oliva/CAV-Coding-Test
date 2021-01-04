@@ -19,7 +19,7 @@ export class ContainerComponent implements OnInit {
   likedContainer(ev) {
     if (ev) {
       let ids = this.likes.map(item => item.id)
-      if (ids.indexOf(ev.id) !== 0) {
+      if (ids.indexOf(ev.id) === -1) {
         this.likes.push(ev)
       }
     }
@@ -28,7 +28,7 @@ export class ContainerComponent implements OnInit {
   dislikedContainer(ev) {
     if (ev) {
       let ids = this.dislikes.map(item => item.id)
-      if (ids.indexOf(ev.id) !== 0) {
+      if (ids.indexOf(ev.id) === -1) {
         this.dislikes.push(ev)
       }
     }
