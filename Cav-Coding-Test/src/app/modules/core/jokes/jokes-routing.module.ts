@@ -1,10 +1,15 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { ContainerComponent } from './components/container/container.component';
+import { NgModule } from '@angular/core';
+
+export const jokesRoutes: Routes = [
+  { path: '', redirectTo: 'jokes', pathMatch: 'full' },
+  { path: 'jokes', component: ContainerComponent }
+];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(jokesRoutes)],
   exports: [RouterModule]
 })
 export class JokesRoutingModule { }

@@ -1,7 +1,13 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { NgModule } from '@angular/core';
+import { jokesRoutes } from './modules/core/jokes/jokes-routing.module';
+
+const jokesModule = () => import('./modules/core/jokes/jokes.module').then((m) => m.JokesModule)
+
+const routes: Routes = [{
+  path: '', children: [...jokesRoutes]
+}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
