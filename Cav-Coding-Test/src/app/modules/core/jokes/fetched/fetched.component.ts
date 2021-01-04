@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable, interval, timer } from 'rxjs';
-import { map, timeout } from 'rxjs/internal/operators';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 import { IJokes } from './../../../../shared/models/interface/jokes';
 import { JokesService } from './../../../shared/services/jokes/jokes.service';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/internal/operators';
 
 @Component({
   selector: 'app-fetched',
@@ -11,29 +11,37 @@ import { JokesService } from './../../../shared/services/jokes/jokes.service';
   styleUrls: ['./fetched.component.css']
 })
 export class FetchedComponent implements OnInit {
-
+  @Output() liked = new EventEmitter()
+  @Output() disliked = new EventEmitter()
   jokes$: Observable<IJokes>;
-  jokesList = []
+  jokes: IJokes
+
   constructor(private jokesService: JokesService) { }
 
   ngOnInit(): void {
-    this.getJokes();
+    this.getJokes()
   }
-
-
-
 
   getJokes() {
-    this.jokesService.getJokes().pipe(
-      map((data: any) => {
-        const item = {
-          joke: data.value.joke
-        };
-        this.jokesList.push(item);
-      }
-      )).subscribe();
+    setInterval(() => {
+      this.jokesService.getJokes().pipe(
+        map((data: any) => {
+          this.jokes = {
+            id: data.value.id,
+            joke: data.value.joke
+          }
+        }
+        )).subscribe();
+    }, 5000)
   }
 
+onLike(joke){
+this.liked.emit(joke)
+}
 
+onDislike(joke){
+  this.disliked.emit(joke)
+
+}
 
 }

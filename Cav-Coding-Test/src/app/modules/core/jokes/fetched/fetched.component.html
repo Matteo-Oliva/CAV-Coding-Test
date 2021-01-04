@@ -5,10 +5,10 @@
       <mat-card-title><h1>Chuck Norris Joke</h1></mat-card-title>
 
       <mat-card-actions>
-        <button mat-mini-fab color="primary">
+        <button mat-mini-fab color="primary" (click)="onLike(jokes)">
           <mat-icon>like</mat-icon>
         </button>
-        <button mat-mini-fab color="primary">
+        <button mat-mini-fab color="primary" (click)="onDislike(jokes)">
           <mat-icon>dislike</mat-icon>
         </button>
       </mat-card-actions>
@@ -16,7 +16,8 @@
 
     <mat-card-content>
       <p>
-        {{ jokesList[0] | json }}
+
+        {{ jokes?.joke }}
       </p>
     </mat-card-content>
   </mat-card>

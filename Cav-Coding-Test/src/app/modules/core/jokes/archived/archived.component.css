@@ -1,0 +1,6 @@
+.archived{
+  float: right;
+  border: 1px solid black;
+  width: 50% ;
+  height: 600px;
+}

@@ -13,7 +13,7 @@ export class JokesService {
 
 
   getJokes(): Observable<IJokes> {
-    return this.http.get<IJokes>(this.jokesUrl).pipe(timeout(1000))
+    return this.http.get<IJokes>(this.jokesUrl)
 
   }
 }

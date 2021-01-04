@@ -1,15 +1,17 @@
 <div class="fetched-app">
-<app-fetched></app-fetched>
+  <app-fetched
+    (liked)="likedContainer($event)"
+    (disliked)="dislikedContainer($event)"
+  ></app-fetched>
 </div>
 
-<div class="liked-app" >
-<app-like></app-like>
-</div>
-
-<div class="disliked-app">
-  <app-dislike></app-dislike>
+<div class="liked-app">
+  <app-like [likes]="likes"></app-like>
 </div>
 
 <div class="archived-app">
   <app-archived></app-archived>
+</div>
+<div class="disliked-app">
+  <app-dislike [dislikes]="dislikes"></app-dislike>
 </div>

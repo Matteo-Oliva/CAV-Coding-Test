@@ -4,12 +4,13 @@
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title><h1>Liked Jokes</h1></mat-card-title>
     </mat-card-header>
-    <mat-card-content>
-      <p>lista</p>
+    <mat-card-content *ngFor="let item of likes">
+
+      <p>{{item.joke}}</p>
       <mat-card-actions>
-        <button mat-raised-button color="primary">Like</button>
-        <button mat-raised-button color="accent">Dislike</button>
-        <button mat-raised-button color="warn">Archive</button>
+        <button mat-raised-button color="primary" (click)="disliked(item)">Dislike</button>
+        <button mat-raised-button color="accent">Archive</button>
+        <button mat-raised-button color="warn">Delete</button>
       </mat-card-actions>
     </mat-card-content>
   </mat-card>

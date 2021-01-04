@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+import { IJokes } from './../../../../shared/models/interface/jokes';
 
 @Component({
   selector: 'app-dislike',
@@ -6,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dislike.component.css']
 })
 export class DislikeComponent implements OnInit {
-
+  @Input() dislikes: IJokes[];
   constructor() { }
 
   ngOnInit(): void {
