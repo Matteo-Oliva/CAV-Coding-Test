@@ -10,6 +10,7 @@ import { IJokes } from './../../../../shared/models/interface/jokes';
 export class LikeComponent implements OnInit {
   @Input() likes: IJokes[]
   @Output() dislike = new EventEmitter()
+  @Output() archiv = new EventEmitter()
   constructor() { }
 
   ngOnInit(): void {
@@ -17,5 +18,10 @@ export class LikeComponent implements OnInit {
 
   disliked(joke) {
     this.dislike.emit(joke);
+  }
+
+  archive(joke){
+    this.archiv.emit(joke)
+
   }
 }

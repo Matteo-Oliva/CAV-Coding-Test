@@ -11,45 +11,74 @@ export class ContainerComponent implements OnInit {
 
   likes: IJokes[] = [];
   dislikes: IJokes[] = [];
+  archived: IJokes[] = [];
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  likedContainer(ev) {
-    if (ev) {
+  likedContainer(joke: IJokes):void {
+    if (joke) {
       let ids = this.likes.map(item => item.id)
-      if (ids.indexOf(ev.id) === -1) {
-        this.likes.push(ev)
+      if (ids.indexOf(joke.id) === -1) {
+        this.likes.push(joke)
       }
     }
   }
 
-  dislikedContainer(ev) {
-    if (ev) {
+  dislikedContainer(joke: IJokes):void {
+    if (joke) {
       let ids = this.dislikes.map(item => item.id)
-      if (ids.indexOf(ev.id) === -1) {
-        this.dislikes.push(ev)
+      if (ids.indexOf(joke.id) === -1) {
+        this.dislikes.push(joke)
       }
     }
   }
 
-  onDisliked(ev) {
-    if (ev) {
+  onDisliked(joke: IJokes):void {
+    if (joke) {
       let ids = this.likes.map(item => item.id);
-      let idLike = ids.indexOf(ev.id);
+      let idLike = ids.indexOf(joke.id);
       this.likes.splice(idLike, 1);
-      this.dislikes.push(ev);
+      this.dislikes.push(joke);
     }
   }
 
-  onLiked(ev){
-    if (ev) {
+  onLiked(joke: IJokes):void {
+    if (joke) {
       let ids = this.dislikes.map(item => item.id);
-      let idDisliked = ids.indexOf(ev.id);
+      let idDisliked = ids.indexOf(joke.id);
       this.dislikes.splice(idDisliked, 1);
-      this.likes.push(ev);
+      this.likes.push(joke);
     }
   }
 
+  archiveControl(archived: number[], joke: any):void {
+    if (archived.indexOf(joke.id) === -1) {
+      this.archived.push(joke);
+    }
+  }
+
+  onArchiveLiked(joke: IJokes):void {
+    if (joke) {
+      let archived = this.archived.map(item => item.id)
+      let ids = this.likes.map(item => item.id);
+      let idLike = ids.indexOf(joke.id)
+      this.likes.splice(idLike, 1)
+      this.archiveControl(archived, joke);
+
+    }
+  }
+
+
+  onArchiveDisLiked(joke: IJokes):void {
+    if (joke) {
+      let archived = this.archived.map(item => item.id)
+      let ids = this.dislikes.map(item => item.id);
+      let idDislike = ids.indexOf(joke.id)
+      this.dislikes.splice(idDislike, 1)
+      this.archiveControl(archived, joke);
+    }
+
+  }
 }

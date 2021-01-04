@@ -10,6 +10,7 @@ import { IJokes } from './../../../../shared/models/interface/jokes';
 export class DislikeComponent implements OnInit {
   @Input() dislikes: IJokes[];
   @Output() like = new EventEmitter()
+  @Output() archive = new EventEmitter()
 
   constructor() { }
 
@@ -18,6 +19,10 @@ export class DislikeComponent implements OnInit {
 
   onLike(joke){
     this.like.emit(joke)
+  }
+  onArchive(joke){
+    this.archive.emit(joke)
+
   }
 
 }
