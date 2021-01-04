@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { IJokes } from './../../../../shared/models/interface/jokes';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/internal/operators';
+import { Observable, } from 'rxjs';
+import { timeout } from 'rxjs/internal/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class JokesService {
 
 
   getJokes(): Observable<IJokes> {
-    return this.http.get<IJokes>(this.jokesUrl)
+    return this.http.get<IJokes>(this.jokesUrl).pipe(timeout(1000))
 
   }
 }
