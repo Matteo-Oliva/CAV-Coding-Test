@@ -6,5 +6,6 @@ import { Injectable } from '@angular/core';
 })
 export class JokesService {
   jokesUrl = 'api/jokes'
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 }
+
