@@ -1,17 +1,29 @@
-<div class="fetched-app">
-  <app-fetched
-    (liked)="likedContainer($event)"
-    (disliked)="dislikedContainer($event)"
-  ></app-fetched>
-</div>
+<div class="container">
+  <div class="fetched-app">
+    <app-fetched
+      (liked)="likedContainer($event)"
+      (disliked)="dislikedContainer($event)"
+    ></app-fetched>
+  </div>
 
-<div class="liked-app">
-  <app-like [likes]="likes" (dislike)="onDisliked($event)" (archiv)="onArchiveLiked($event)" (deleteLike)="deleteLikes($event)"></app-like>
-</div>
+  <div class="liked-app">
+    <app-like
+      [likes]="likes"
+      (dislike)="onDisliked($event)"
+      (archiv)="onArchiveLiked($event)"
+      (deleteLike)="deleteLikes($event)"
+    ></app-like>
+  </div>
 
-<div class="archived-app">
-  <app-archived [archived]="archived"></app-archived>
-</div>
-<div class="disliked-app">
-  <app-dislike [dislikes]="dislikes" (like)="onLiked($event)" (archive)="onArchiveDisLiked($event)" (deleteDislike)="deleteDislikes($event)" ></app-dislike>
+  <div class="archived-app">
+    <app-archived [archived]="archived"></app-archived>
+  </div>
+  <div class="disliked-app">
+    <app-dislike
+      [dislikes]="dislikes"
+      (like)="onLiked($event)"
+      (archive)="onArchiveDisLiked($event)"
+      (deleteDislike)="deleteDislikes($event)"
+    ></app-dislike>
+  </div>
 </div>

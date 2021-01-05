@@ -1,8 +1,13 @@
 .fetch-card{
-  width: 50%;
+  width: 49%;
   float :right;
-  border: 1px solid black;
   height: 200px;
   padding :5px;
+  margin-right: 1%;
+
+}
+.buttonLeft {
+   margin-right: 10px;
+  margin-left: 70px
 
 }

@@ -20,6 +20,7 @@ export class DislikeComponent implements OnInit {
 
   onLike(joke): void {
     this.like.emit(joke);
+
   }
   onArchive(joke): void {
     this.archive.emit(joke);

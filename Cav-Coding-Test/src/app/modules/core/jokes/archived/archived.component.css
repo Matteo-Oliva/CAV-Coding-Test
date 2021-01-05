@@ -1,6 +1,14 @@
 .archived{
-  float: right;
-  border: 1px solid black;
-  width: 50% ;
-  height: 600px;
+  margin-top: -150px;
+  width: 49%;
+  float :right;
+  height: 200px;
+  padding :5px;
+  margin-right: 1%;
+  height: 568px;
+  overflow-y: scroll;
+}
+
+h1{
+  color:orange
 }

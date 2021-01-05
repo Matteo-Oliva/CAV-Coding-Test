@@ -1,9 +1,12 @@
 .dislike-card{
-  margin-top: 5%;
+  margin-top: 1%;
+  margin-left: 2%;
   padding: 5px;
-  border: 1px solid black;
-  width: 48%;
-  height: 400px;
+  width: 43%;
   overflow-y: scroll;
-
+  height: 400px;
+  }
+h1{
+  color:rgb(199, 67, 5)
 }
+
