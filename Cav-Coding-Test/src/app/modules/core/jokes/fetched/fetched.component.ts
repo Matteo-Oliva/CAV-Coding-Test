@@ -19,20 +19,25 @@ export class FetchedComponent implements OnInit {
   constructor(private jokesService: JokesService) { }
 
   ngOnInit(): void {
+    this.callJokes()
     this.getJokes()
   }
 
   getJokes() {
     setInterval(() => {
-      this.jokesService.getJokes().pipe(
-        map((data: any) => {
-          this.jokes = {
-            id: data.value.id,
-            joke: data.value.joke
-          }
-        }
-        )).subscribe();
+      this.callJokes();
     }, 5000)
+  }
+
+  private callJokes() {
+    this.jokesService.getJokes().pipe(
+      map((data: any) => {
+        this.jokes = {
+          id: data.value.id,
+          joke: data.value.joke
+        };
+      }
+      )).subscribe();
   }
 
 onLike(joke){

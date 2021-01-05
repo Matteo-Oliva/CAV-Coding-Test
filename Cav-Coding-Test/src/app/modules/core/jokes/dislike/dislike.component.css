@@ -9,4 +9,6 @@
 h1{
   color:rgb(199, 67, 5)
 }
-
+.mat-card-content{
+  margin-top: 15px;
+}
