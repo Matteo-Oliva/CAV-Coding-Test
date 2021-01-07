@@ -31,10 +31,10 @@ export class FetchedComponent implements OnInit {
 
   private callJokes() {
     this.jokesService.getJokes().pipe(
-      map((data: any) => {
+      map((data: IJokes) => {
         this.jokes = {
-          id: data.value.id,
-          joke: data.value.joke
+          id: data.id,
+          joke: data.joke
         };
       }
       )).subscribe();

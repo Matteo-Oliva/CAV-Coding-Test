@@ -3,3 +3,10 @@ export interface IJokes {
   joke: string;
 
 }
+
+export interface IJokesResponse {
+  type: string;
+  value: IJokes;
+
+
+}

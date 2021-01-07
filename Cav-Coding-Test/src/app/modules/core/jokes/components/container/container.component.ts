@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { IJokes } from './../../../../../shared/models/interface/jokes';
+import { JokesService } from './../../../../shared/services/jokes/jokes.service';
 
 @Component({
   selector: 'app-container',
@@ -12,105 +13,39 @@ export class ContainerComponent implements OnInit {
   likes: IJokes[] = [];
   dislikes: IJokes[] = [];
   archived: IJokes[] = [];
-  constructor() { }
+  constructor(private jokesService: JokesService) { }
 
   ngOnInit(): void {
-  }
+    this.likes = this.jokesService.likes;
+    this.dislikes = this.jokesService.dislikes;
+    this.archived = this.jokesService.archived;
 
-  private mapLikes(): number[] {
-    return this.likes.map(item => item.id);
-  }
-
-  private mapDislikes(): number[] {
-    return this.dislikes.map(item => item.id);
-  }
-
-  private mapArchived(): number[] {
-    return this.archived.map(item => item.id);
-  }
-
-  private archiveControl(archived: number[], joke: IJokes): void {
-    if (archived.indexOf(joke.id) === -1) {
-      this.archived.push(joke);
-    }
   }
 
   likedContainer(joke: IJokes): void {
-    if (joke) {
-      const ids = this.mapLikes();
-      if (ids.indexOf(joke.id) === -1) {
-        this.likes.push(joke);
-      }
-    }
+    this.jokesService.likedContainer(joke);
   }
 
   dislikedContainer(joke: IJokes): void {
-    if (joke) {
-      const ids = this.dislikes.map(item => item.id);
-      if (ids.indexOf(joke.id) === -1) {
-        this.dislikes.push(joke);
-      }
-    }
+    this.jokesService.dislikedContainer(joke);
   }
 
   onDisliked(joke: IJokes): void {
-    if (joke) {
-      const ids = this.mapLikes();
-      const idLike = ids.indexOf(joke.id);
-      this.likes.splice(idLike, 1);
-      this.dislikes.push(joke);
-    }
+    this.jokesService.onDisliked(joke);
   }
 
   onLiked(joke: IJokes): void {
-    if (joke) {
-      const ids = this.dislikes.map(item => item.id);
-      const idDisliked = ids.indexOf(joke.id);
-      this.dislikes.splice(idDisliked, 1);
-      this.likes.push(joke);
-    }
+    this.jokesService.onLiked(joke);
   }
 
-
-
-  onArchiveLiked(joke: IJokes): void {
-    if (joke) {
-      const archived = this.mapArchived();
-      const ids = this.mapLikes();
-      const idLike = ids.indexOf(joke.id);
-      this.likes.splice(idLike, 1);
-      this.archiveControl(archived, joke);
-
-    }
+  onArchive(joke: IJokes, array: IJokes[]): void {
+    this.jokesService.onArchive(joke, array);
   }
 
-  onArchiveDisLiked(joke: IJokes): void {
-    if (joke) {
-      const archived = this.mapArchived();
-      const ids = this.dislikes.map(item => item.id);
-      const idDislike = ids.indexOf(joke.id);
-      this.dislikes.splice(idDislike, 1);
-      this.archiveControl(archived, joke);
-    }
+  deleteJoke(joke: IJokes, array: IJokes[]): void {
+    this.jokesService.delete(joke, array);
   }
-
-  deleteLikes(joke: IJokes): void {
-    if (joke) {
-      const ids = this.mapLikes();
-      const idLike = ids.indexOf(joke.id);
-      this.likes.splice(idLike, 1);
-    }
-  }
-
-  deleteDislikes(joke: IJokes): void {
-    if (joke) {
-      const ids = this.mapDislikes();
-      const idDislike = ids.indexOf(joke.id);
-      this.dislikes.splice(idDislike, 1);
-    }
-
-  }
-}
+ }
 
 
 

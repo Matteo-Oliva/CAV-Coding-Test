@@ -10,8 +10,8 @@
     <app-like
       [likes]="likes"
       (dislike)="onDisliked($event)"
-      (archiv)="onArchiveLiked($event)"
-      (deleteLike)="deleteLikes($event)"
+      (archiv)="onArchive($event,likes)"
+      (deleteLike)="deleteJoke($event,likes)"
     ></app-like>
   </div>
 
@@ -22,8 +22,8 @@
     <app-dislike
       [dislikes]="dislikes"
       (like)="onLiked($event)"
-      (archive)="onArchiveDisLiked($event)"
-      (deleteDislike)="deleteDislikes($event)"
+      (archive)="onArchive($event,dislikes)"
+      (deleteDislike)="deleteJoke($event,dislikes)"
     ></app-dislike>
   </div>
 </div>
