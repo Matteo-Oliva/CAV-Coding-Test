@@ -19,7 +19,7 @@ export class JokesService {
 
   getJokes(): Observable<IJokes> {
     return this.http.get<IJokesResponse>(this.jokesUrl).
-      pipe(map(data => data.value));
+      pipe(map((data: IJokesResponse) => data.value));
   }
 
   private mapId(array: IJokes[]): number[] {

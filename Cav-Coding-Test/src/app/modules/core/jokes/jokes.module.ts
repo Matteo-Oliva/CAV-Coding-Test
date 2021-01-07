@@ -7,13 +7,15 @@ import { JokesRoutingModule } from './jokes-routing.module';
 import { LikeComponent } from './like/like.component';
 import { MaterialModule } from './../../shared/material.module';
 import { NgModule } from '@angular/core';
+import { SharedModule } from './../../shared/shared.module';
 
 @NgModule({
   declarations: [ContainerComponent, LikeComponent, DislikeComponent, ArchivedComponent, FetchedComponent],
   imports: [
     CommonModule,
     JokesRoutingModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule
 
   ]
 })

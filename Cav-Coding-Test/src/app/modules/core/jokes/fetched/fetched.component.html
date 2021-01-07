@@ -4,14 +4,14 @@
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title><h1>Chuck Norris Joke</h1></mat-card-title>
       <div>
-        Fetch Time(ms) <input class="fetch-number" type="number" placeholder="3000">
+        Fetch Time(s) <input class="fetch-number" type="number" [(ngModel)]="fetchTime" >
       </div>
     </mat-card-header>
       <mat-card-actions>
-        <button mat-mini-fab color="primary" class="buttonLeft" (click)="onLike(jokes)">
+        <button mat-mini-fab color="primary" class="buttonLeft" (click)="onLike(joke)">
           <mat-icon>thumb_up_alt</mat-icon>
         </button>
-        <button mat-mini-fab color="primary" (click)="onDislike(jokes)">
+        <button mat-mini-fab color="primary" (click)="onDislike(joke)">
           <mat-icon>thumb_down_alt</mat-icon>
         </button>
       </mat-card-actions>
@@ -20,7 +20,7 @@
     <mat-card-content>
       <p>
 
-        {{ jokes?.joke }}
+        {{ joke?.joke }}
       </p>
     </mat-card-content>
   </mat-card>
