@@ -9,25 +9,25 @@ import { IJokes } from './../../../../shared/models/interface/jokes';
 })
 export class DislikeComponent implements OnInit {
   @Input() dislikes: IJokes[];
-  @Output() like = new EventEmitter();
-  @Output() archive = new EventEmitter();
-  @Output() deleteDislike = new EventEmitter();
+  @Output() like = new EventEmitter<IJokes>();
+  @Output() archive = new EventEmitter<IJokes>();
+  @Output() deleteDislike = new EventEmitter<IJokes>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onLike(joke): void {
+  onLike(joke: IJokes): void {
     this.like.emit(joke);
 
   }
-  onArchive(joke): void {
+  onArchive(joke: IJokes): void {
     this.archive.emit(joke);
 
   }
 
-  onDelete(joke): void {
+  onDelete(joke: IJokes): void {
     this.deleteDislike.emit(joke);
 
   }

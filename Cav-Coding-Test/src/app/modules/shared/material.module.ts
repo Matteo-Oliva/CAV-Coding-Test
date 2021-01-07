@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 
 const materialModules = [MatCardModule, MatButtonModule, MatIconModule,
 
-]
+];
 
 @NgModule({
   declarations: [],

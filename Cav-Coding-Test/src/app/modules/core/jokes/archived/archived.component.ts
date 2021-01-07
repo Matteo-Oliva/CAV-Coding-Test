@@ -8,7 +8,7 @@ import { IJokes } from './../../../../shared/models/interface/jokes';
   styleUrls: ['./archived.component.css']
 })
 export class ArchivedComponent implements OnInit {
-  @Input() archived: IJokes[]
+  @Input() archived: IJokes[];
   constructor() { }
 
   ngOnInit(): void {

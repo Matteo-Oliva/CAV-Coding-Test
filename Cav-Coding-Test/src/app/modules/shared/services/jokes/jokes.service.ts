@@ -36,7 +36,7 @@ export class JokesService {
     return ids.indexOf(joke.id);
   }
 
-  likedContainer(joke: IJokes): void {
+  onLike(joke: IJokes): void {
     if (joke) {
       const ids = this.mapId(this.likes);
       if (ids.indexOf(joke.id) === -1) {
@@ -45,7 +45,7 @@ export class JokesService {
     }
   }
 
-  dislikedContainer(joke: IJokes): void {
+  onDislike(joke: IJokes): void {
     if (joke) {
       const ids = this.dislikes.map(item => item.id);
       if (ids.indexOf(joke.id) === -1) {
@@ -85,7 +85,6 @@ export class JokesService {
       const index = this.getIndex(ids, joke);
       this.dislikes.splice(index, 1);
       this.archiveControl(archived, joke);
-
     }
   }
 

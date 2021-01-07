@@ -22,12 +22,12 @@ export class ContainerComponent implements OnInit {
 
   }
 
-  likedContainer(joke: IJokes): void {
-    this.jokesService.likedContainer(joke);
+  onLike(joke: IJokes): void {
+    this.jokesService.onLike(joke);
   }
 
-  dislikedContainer(joke: IJokes): void {
-    this.jokesService.dislikedContainer(joke);
+  onDislike(joke: IJokes): void {
+    this.jokesService.onDislike(joke);
   }
 
   onDisliked(joke: IJokes): void {

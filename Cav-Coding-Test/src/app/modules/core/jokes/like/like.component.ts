@@ -8,10 +8,10 @@ import { IJokes } from './../../../../shared/models/interface/jokes';
   styleUrls: ['./like.component.css']
 })
 export class LikeComponent implements OnInit {
-  @Input() likes: IJokes[]
-  @Output() dislike = new EventEmitter()
-  @Output() archiv = new EventEmitter()
-  @Output() deleteLike = new EventEmitter()
+  @Input() likes: IJokes[];
+  @Output() dislike = new EventEmitter<IJokes>();
+  @Output() archiv = new EventEmitter<IJokes>();
+  @Output() deleteLike = new EventEmitter<IJokes>();
   constructor() { }
 
   ngOnInit(): void {
@@ -22,11 +22,11 @@ export class LikeComponent implements OnInit {
   }
 
   archive(joke: IJokes): void {
-    this.archiv.emit(joke)
+    this.archiv.emit(joke);
 
   }
 
   deleteLiked(joke: IJokes): void {
-    this.deleteLike.emit(joke)
+    this.deleteLike.emit(joke);
   }
 }
