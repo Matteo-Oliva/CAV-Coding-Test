@@ -1,9 +1,9 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { Observable, Subscription, interval } from 'rxjs';
-import { map, switchMap } from 'rxjs/internal/operators';
 
 import { IJokes } from './../../../../shared/models/interface/jokes';
 import { JokesService } from './../../../shared/services/jokes/jokes.service';
+import { switchMap } from 'rxjs/internal/operators';
 
 @Component({
   selector: 'app-fetched',
