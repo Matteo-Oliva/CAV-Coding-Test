@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
-import { IJokes } from './../../../../shared/models/interface/jokes';
+import { IJokes } from '../../../../../shared/models/interface/jokes';
 
 @Component({
   selector: 'app-like',

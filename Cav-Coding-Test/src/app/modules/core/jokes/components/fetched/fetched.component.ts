@@ -1,8 +1,8 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { Observable, Subscription, interval } from 'rxjs';
 
-import { IJokes } from './../../../../shared/models/interface/jokes';
-import { JokesService } from './../../../shared/services/jokes/jokes.service';
+import { IJokes } from '../../../../../shared/models/interface/jokes';
+import { JokesService } from '../../../../shared/services/jokes/jokes.service';
 import { switchMap } from 'rxjs/internal/operators';
 
 @Component({
