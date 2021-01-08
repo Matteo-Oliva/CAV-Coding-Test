@@ -1,15 +1,17 @@
 import { IJokes, IJokesResponse } from './../../../../shared/models/interface/jokes';
+import { catchError, map } from 'rxjs/internal/operators';
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, } from 'rxjs';
-import { map } from 'rxjs/internal/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class JokesService {
-  jokesUrl = 'http://api.icndb.com/jokes/random';
+
+  readonly randomJokeApi = environment.randomJokeApi;
   likes: IJokes[] = [];
   dislikes: IJokes[] = [];
   archived: IJokes[] = [];
@@ -18,8 +20,12 @@ export class JokesService {
 
 
   getJokes(): Observable<IJokes> {
-    return this.http.get<IJokesResponse>(this.jokesUrl).
-      pipe(map((data: IJokesResponse) => data.value));
+    return this.http.get<IJokesResponse>(this.randomJokeApi).
+      pipe(map((data: IJokesResponse) => data.value),
+        catchError(error => {
+          console.error(`Error : `, error);
+          throw new Error(error);
+        }));
   }
 
   private mapId(array: IJokes[]): number[] {

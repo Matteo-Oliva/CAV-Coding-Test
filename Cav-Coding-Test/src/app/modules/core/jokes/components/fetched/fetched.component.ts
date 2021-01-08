@@ -24,7 +24,7 @@ export class FetchedComponent implements OnInit, OnDestroy {
 
 
   ngOnInit(): void {
-    this.startSubscription = this.jokesService.getJokes().subscribe(joke => this.joke = joke)
+    this.startSubscription = this.jokesService.getJokes().subscribe(joke => this.joke = joke);
     this.jokeSubscription = this.getJokeSubscription(this._fetchTime);
   }
 

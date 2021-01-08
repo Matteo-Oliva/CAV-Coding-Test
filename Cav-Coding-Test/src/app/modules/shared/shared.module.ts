@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 const sharedModules = [
   CommonModule,
   FormsModule,
-]
+];
 
 @NgModule({
   declarations: [],
